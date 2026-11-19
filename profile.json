@@ -12,7 +12,8 @@
       "status": {
         "en": "In progress",
         "fr": "En cours"
-      }
+      },
+      "logo": "scripts/assets/oria-coaching-symbole.svg"
     },
     {
       "name": "Oria_Hub",
@@ -29,7 +30,8 @@
       "status": {
         "en": "Waiting",
         "fr": "En attente"
-      }
+      },
+      "logo": "scripts/assets/oria-brand-symbole.svg"
     }
   ],
   "links": [
