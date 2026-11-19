@@ -14,7 +14,8 @@ R = 20  # one corner radius for every card
 
 # Oria "Aube doree" palette (design-system/oria-tokens.css) + logo greens. No gradients.
 GOLD, GREEN, CREAM = "#D19D33", "#282E1E", "#F9F7EF"
-INK, SOFT, VIOLET, PALE = "#3B3A24", "#D9D0EE", "#6A4C93", "#F5E9B8"
+INK, SOFT, VIOLET, PALE = "#3B3A24", "#D9D0EE", "#6E5F8F", "#F5E9B8"
+DEEP = "#4F4272"  # text/icons on the lavender card (6:1 contrast)
 RAMP = ["#3A4430", "#947632", "#A87F2B", GOLD, PALE]  # level 1 lightened for 3:1 contrast on GREEN
 
 MONTHS = {"en": "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(),
@@ -115,6 +116,14 @@ def icon(name, x, y, size, color):
             f'stroke-linecap="round" stroke-linejoin="round">{ICONS.get(name, ICONS["link"])}</g>')
 
 
+def inline_logo(path, x, y, size):
+    """Embed a brand-kit SVG (one root <svg> with a viewBox) as a nested <svg> at x,y of size x size."""
+    t = (ROOT / path).read_text(encoding="utf-8")
+    vb = re.search(r'viewBox="([^"]+)"', t).group(1)
+    inner = re.sub(r"<title>.*?</title>", "", t[t.index(">", t.index("<svg")) + 1:t.rindex("</svg>")], flags=re.S)
+    return f'<svg x="{x}" y="{y}" width="{size}" height="{size}" viewBox="{vb}">{inner}</svg>'
+
+
 def hero(cfg, lang):
     w, h = 960, 200
     name, tag = escape(cfg["name"]), escape(cfg["tagline"][lang])
@@ -133,22 +142,22 @@ def hero(cfg, lang):
     return svg(w, h, body, f"{cfg['name']} - {cfg['tagline'][lang]}", ("display", "ui"))
 
 
-def row_card(kind, label, value, ic, right_pill=None):
+def row_card(kind, label, value, ic, right_pill=None, logo=None):
     """Full-width card sized to its text. kind: 'project' (cream) or 'link' (violet)."""
     w, h = 640, 96
-    bg, bd, lb, vl, icc = ((CREAM, f'stroke="{GOLD}" stroke-opacity=".6" stroke-width="2"', VIOLET, INK, VIOLET)
-                           if kind == "project" else (VIOLET, 'stroke="none"', PALE, CREAM, PALE))
+    bd = f'stroke="{GOLD}" stroke-opacity=".6" stroke-width="2"'
+    bg, lb, vl, icc = (CREAM, VIOLET, INK, VIOLET) if kind == "project" else (SOFT, DEEP, INK, DEEP)
     if right_pill:
         pw = len(right_pill) * 9.8 + 40
         right = (f'<rect x="{w - 28 - pw:.0f}" y="31" width="{pw:.0f}" height="34" rx="17" fill="{SOFT}"/>'
                  f'<text x="{w - 28 - pw / 2:.0f}" y="48" text-anchor="middle" dominant-baseline="central" class="u" font-size="16" fill="#3A2D52">{escape(right_pill)}</text>')
     else:
         # position on the outer <g>, animation on the inner one: a CSS transform would otherwise replace the position
-        right = (f'<g transform="translate({w - 62} {34})"><g class="nudge"><path d="M0 26 L26 0 M7 0 H26 V19" fill="none" stroke="{GOLD}" '
+        right = (f'<g transform="translate({w - 62} {34})"><g class="nudge"><path d="M0 26 L26 0 M7 0 H26 V19" fill="none" stroke="{DEEP}" '
                  f'stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g></g>')
     body = f"""
 <rect x="1" y="1" width="{w - 2}" height="{h - 2}" rx="{R}" fill="{bg}" {bd}/>
-{icon(ic, 28, 29, 38, icc)}
+{inline_logo(logo, 24, 22, 52) if logo else icon(ic, 28, 29, 38, icc)}
 <text x="84" y="38" class="u rise" font-size="15" letter-spacing="3" fill="{lb}">{escape(label.upper())}</text>
 <text x="84" y="73" class="r rise" font-size="32" fill="{vl}" style="animation-delay:.12s">{escape(value)}</text>
 {right}"""
@@ -246,7 +255,7 @@ def main():
         w = lambda name, s: (out / "cards" / name).write_text(s, encoding="utf-8")
         w(f"hero-{lang}.svg", hero(cfg, lang))
         for i, p in enumerate(cfg["projects"]):
-            w(f"project-{i}-{lang}.svg", row_card("project", T[lang]["project"], p["name"], p.get("icon", "link"), p["status"][lang]))
+            w(f"project-{i}-{lang}.svg", row_card("project", T[lang]["project"], p["name"], p.get("icon", "link"), p["status"][lang], p.get("logo")))
         for i, l in enumerate(cfg["links"]):
             w(f"link-{i}-{lang}.svg", row_card("link", l["label"][lang], l["value"], l.get("icon", "link")))
         w(f"activity-{lang}.svg", activity(data, lang))
