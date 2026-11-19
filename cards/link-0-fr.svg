@@ -16,8 +16,8 @@
 .cell{animation:pop .5s ease-out both;transform-box:fill-box;transform-origin:center}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style><g transform="translate(6 6)">
-<rect x="1" y="1" width="638" height="94" rx="20" fill="#6A4C93" stroke="none"/>
-<g transform="translate(28 29) scale(1.583)" fill="none" stroke="#F5E9B8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></g>
-<text x="84" y="38" class="u rise" font-size="15" letter-spacing="3" fill="#F5E9B8">PORTFOLIO</text>
-<text x="84" y="73" class="r rise" font-size="32" fill="#F9F7EF" style="animation-delay:.12s">palesun276.github.io</text>
-<g transform="translate(578 34)"><g class="nudge"><path d="M0 26 L26 0 M7 0 H26 V19" fill="none" stroke="#D19D33" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+<rect x="1" y="1" width="638" height="94" rx="20" fill="#D9D0EE" stroke="#D19D33" stroke-opacity=".6" stroke-width="2"/>
+<g transform="translate(28 29) scale(1.583)" fill="none" stroke="#4F4272" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></g>
+<text x="84" y="38" class="u rise" font-size="15" letter-spacing="3" fill="#4F4272">PORTFOLIO</text>
+<text x="84" y="73" class="r rise" font-size="32" fill="#3B3A24" style="animation-delay:.12s">palesun276.github.io</text>
+<g transform="translate(578 34)"><g class="nudge"><path d="M0 26 L26 0 M7 0 H26 V19" fill="none" stroke="#4F4272" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>

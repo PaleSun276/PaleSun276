@@ -17,7 +17,7 @@
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style><g transform="translate(6 6)">
 <rect x="1" y="1" width="638" height="94" rx="20" fill="#F9F7EF" stroke="#D19D33" stroke-opacity=".6" stroke-width="2"/>
-<g transform="translate(28 29) scale(1.583)" fill="none" stroke="#6A4C93" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 9-9 9-9-9z"/></g>
-<text x="84" y="38" class="u rise" font-size="15" letter-spacing="3" fill="#6A4C93">PROJET</text>
+<g transform="translate(28 29) scale(1.583)" fill="none" stroke="#6E5F8F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 9-9 9-9-9z"/></g>
+<text x="84" y="38" class="u rise" font-size="15" letter-spacing="3" fill="#6E5F8F">PROJET</text>
 <text x="84" y="73" class="r rise" font-size="32" fill="#3B3A24" style="animation-delay:.12s">Oria_Brand</text>
 <rect x="474" y="31" width="138" height="34" rx="17" fill="#D9D0EE"/><text x="543" y="48" text-anchor="middle" dominant-baseline="central" class="u" font-size="16" fill="#3A2D52">En attente</text></g></svg>
