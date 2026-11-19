@@ -20,7 +20,8 @@
       "status": {
         "en": "Paused",
         "fr": "En pause"
-      }
+      },
+      "logo": "scripts/assets/oria-hub-symbole.svg"
     },
     {
       "name": "Oria_Brand",
