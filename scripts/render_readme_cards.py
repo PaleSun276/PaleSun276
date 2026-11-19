@@ -126,7 +126,7 @@ def hero(cfg, lang):
  {honeycomb(w, h)}
  {logo(44, 38, 124, "float")}
  <text x="206" y="112" class="n rise" font-size="72" fill="{CREAM}" style="animation-delay:.2s">{name}</text>
- <g clip-path="url(#nm)"><rect class="sheen" x="0" y="40" width="80" height="90" fill="{PALE}" opacity=".85" transform="skewX(-20)"/></g>
+ <g clip-path="url(#nm)"><g transform="skewX(-20)"><rect class="sheen" x="0" y="40" width="80" height="90" fill="{PALE}" opacity=".85"/></g></g>
  <rect x="208" y="130" width="56" height="3" rx="1.5" fill="{GOLD}" class="rise" style="animation-delay:.5s"/>
  <text x="206" y="172" class="u rise" font-size="28" fill="{SOFT}" style="animation-delay:.65s">{tag}</text>
 </g>"""
@@ -143,8 +143,9 @@ def row_card(kind, label, value, ic, right_pill=None):
         right = (f'<rect x="{w - 28 - pw:.0f}" y="31" width="{pw:.0f}" height="34" rx="17" fill="{SOFT}"/>'
                  f'<text x="{w - 28 - pw / 2:.0f}" y="48" text-anchor="middle" dominant-baseline="central" class="u" font-size="16" fill="#3A2D52">{escape(right_pill)}</text>')
     else:
-        right = (f'<g class="nudge" transform="translate({w - 62} {34})"><path d="M0 26 L26 0 M7 0 H26 V19" fill="none" stroke="{GOLD}" '
-                 f'stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>')
+        # position on the outer <g>, animation on the inner one: a CSS transform would otherwise replace the position
+        right = (f'<g transform="translate({w - 62} {34})"><g class="nudge"><path d="M0 26 L26 0 M7 0 H26 V19" fill="none" stroke="{GOLD}" '
+                 f'stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g></g>')
     body = f"""
 <rect x="1" y="1" width="{w - 2}" height="{h - 2}" rx="{R}" fill="{bg}" {bd}/>
 {icon(ic, 28, 29, 38, icc)}
