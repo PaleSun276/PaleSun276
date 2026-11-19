@@ -1,0 +1,46 @@
+{
+  "login": "PaleSun276",
+  "name": "Pale_Sun",
+  "tagline": {
+    "en": "Pale sun, steady light.",
+    "fr": "Soleil pâle, lumière constante."
+  },
+  "projects": [
+    {
+      "name": "Oria_Coaching",
+      "icon": "target",
+      "status": {
+        "en": "In progress",
+        "fr": "En cours"
+      }
+    },
+    {
+      "name": "Oria_Hub",
+      "icon": "grid",
+      "status": {
+        "en": "Paused",
+        "fr": "En pause"
+      }
+    },
+    {
+      "name": "Oria_Brand",
+      "icon": "diamond",
+      "status": {
+        "en": "Waiting",
+        "fr": "En attente"
+      }
+    }
+  ],
+  "links": [
+    {
+      "label": {
+        "en": "Portfolio",
+        "fr": "Portfolio"
+      },
+      "value": "palesun276.github.io",
+      "href": "https://palesun276.github.io/",
+      "icon": "globe"
+    }
+  ],
+  "email": null
+}
