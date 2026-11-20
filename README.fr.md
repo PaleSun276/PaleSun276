@@ -6,7 +6,7 @@
 <img src="cards/project-1-fr.svg" width="100%" alt="Projet: Oria_Hub (En pause)">
 <img src="cards/project-2-fr.svg" width="100%" alt="Projet: Oria_Brand (En attente)">
 <a href="https://palesun276.github.io/"><img src="cards/link-0-fr.svg" width="100%" alt="Portfolio: palesun276.github.io"></a>
-<img src="cards/activity-fr.svg" width="100%" alt="Contributions: 58 contributions sur l&#x27;année">
+<img src="cards/activity-fr.svg" width="100%" alt="Contributions: 62 contributions sur l&#x27;année">
 </p>
 
 <p align="center"><sub>Pale_Sun</sub></p>
